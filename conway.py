@@ -1,5 +1,5 @@
 # Conway's Game of Life
-import random, time, copy
+import random, time, copy, os
 WIDTH = 60
 HEIGHT = 20
 
@@ -8,7 +8,7 @@ nextCells = []
 for x in range(WIDTH):
     column = [] # Create a new column.
     for y in range(HEIGHT):
-        if random.randint(0, 1) == 0:
+        if (x, y) in ((1, 0), (2, 1), (0, 2), (1, 2), (2, 2)):
             column.append('#') # Add a living cell.
         else:
             column.append(' ') # Add a dead cell.
@@ -64,4 +64,5 @@ numNeighbors == 3):
             else:
                 # Everything else dies or stays dead:
                 nextCells[x][y] = ' '
-    time.sleep(0.00001) # Add a 1-second pause to reduce flickering.
+    time.sleep(0.1) # Add a 1-second pause to reduce flickering.
+    os.system('cls')
