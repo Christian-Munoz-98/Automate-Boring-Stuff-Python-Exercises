@@ -13,7 +13,10 @@ def run():
     
     for i in range(5):
         element = input("Add an element to this list----> ")
-        my_list.append(element)
+        if element == '':
+            continue
+        else:
+            my_list.append(element)
     
     if len(my_list) == 0:
         print('Error! empty list!')
